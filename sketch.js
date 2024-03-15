@@ -16,21 +16,14 @@ function draw() {
 
   background(40);
   rect(windowWidth/2-50,windowHeight/2-40,100,80);
-  if (mouseIsPressed === true){
-    if (ButtonState === false){
-      if (mouseX > windowWidth/2-50 && mouseX < (windowWidth/2-50 +100)){
-        if (mouseY > windowHeight/2-40 && mouseY < (windowHeight/2-40 + 80)){
-          background(0);
-          fill(random(255),random(255),random(255));
-          
-          for (let i = 0; i < ballsArray.length; i++){
-            circle(ballsArray[i].x, ballsArray[i].y, ballsArray[i].diameter);
-            ballsArray[i].x += ballsArray[i].dx; // X-Rate of change
-            ballsArray[i].y += ballsArray[i].dy; // Y-Rate of Change
-        
-          }
-        }
-      }
+
+  if (ButtonState === true){
+    background(0);
+    for (let i = 0; i < ballsArray.length; i++){
+      fill(random(255),random(255),random(255))
+      circle(ballsArray[i].x, ballsArray[i].y, ballsArray[i].diameter);
+      ballsArray[i].x += ballsArray[i].dx; // X-Rate of change
+      ballsArray[i].y += ballsArray[i].dy; // Y-Rate of Change  
     }
   }
   fill(255,255,255);
@@ -62,6 +55,16 @@ function mousePressed(){
   createBall()
   createBall()
   createBall()
+  if (mouseX > windowWidth/2-50 && mouseX < (windowWidth/2-50 +100)){
+    if (mouseY > windowHeight/2-40 && mouseY < (windowHeight/2-40 + 80)){
+      if (ButtonState === true){
+        ButtonState = false;
+      }
+      else {
+        ButtonState = true;
+      }
+    }
+  }   
 }
 
 function mouseIsPressed(){
