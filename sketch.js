@@ -41,10 +41,6 @@ function createBall() {
     dy: random(-5, 5),
   };
 
-  if (newBall.x === windowWidth){
-
-  }
-
   // Copying ball obj into the array
   ballsArray.push(newBall);
 
@@ -65,8 +61,4 @@ function mousePressed(){
       }
     }
   }   
-}
-
-function mouseIsPressed(){
-
 }
